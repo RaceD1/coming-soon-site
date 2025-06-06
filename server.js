@@ -2,6 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config();
+const { createClient } = require('@supabase/supabase-js');
+
+// Initialize Supabase client
+const supabase = createClient(
+    process.env.SUPABASE_URL,
+    process.env.SUPABASE_ANON_KEY
+);
 
 const app = express();
 const PORT = 3000;
@@ -26,19 +34,27 @@ app.get('/', (req, res) => {
 });
 
 // Form submission route
-app.post('/submit', (req, res) => {
+app.post('/submit', async (req, res) => {
     const { name, email } = req.body;
 
-    const entry = `${new Date().toISOString()} - Name: ${name}, Email: ${email}\n`;
+    try {
+        const { data, error } = await supabase
+            .from('submissions')
+            .insert([
+                { 
+                    name: name, 
+                    email: email,
+                    created_at: new Date().toISOString()
+                }
+            ]);
 
-    fs.appendFile('submissions.txt', entry, (err) => {
-        if (err) {
-            console.error('Error saving submission:', err);
-            res.status(500).send('Error saving your data.');
-        } else {
-            res.redirect('/thanks.html');
-        }
-    });
+        if (error) throw error;
+
+        res.redirect('/thanks.html');
+    } catch (error) {
+        console.error('Error saving submission:', error);
+        res.status(500).send('Error saving your data.');
+    }
 });
 
 // Catch-all route for debugging
