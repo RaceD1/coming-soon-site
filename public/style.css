@@ -248,4 +248,32 @@ button:active {
 
 .thanks-content .coming-soon {
     margin-bottom: 2.5rem;
+}
+
+.unsubscribe-btn {
+    background: linear-gradient(145deg, #c4a777, #8b7355);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.7rem 0;
+    width: 150px;
+    font-size: 1rem;
+    font-family: 'Orbitron', Arial, sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 0;
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    transition: background 0.3s;
+    outline: none;
+    vertical-align: middle;
+}
+.unsubscribe-btn:hover,
+.unsubscribe-btn:focus,
+.unsubscribe-btn:active {
+    background: linear-gradient(145deg, #d4b787, #9b8365);
+    outline: none;
+    border: none;
 } 

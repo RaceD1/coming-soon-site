@@ -70,6 +70,49 @@ app.use((req, res) => {
     res.status(404).send('File not found');
 });
 
+// Get route for /unsubscribe
+app.get('/unsubscribe', (req, res) => {
+    res.sendFile(path.join(publicPath, 'unsubscribe.html'));
+});
+
+// Post route for /unsubscribe-confirm
+app.post('/unsubscribe-confirm', async (req, res) => {
+    const email = req.body.email;
+    let unsubResult = '';
+    try {
+        const { error } = await supabase
+            .from('submissions')
+            .delete()
+            .eq('email', email);
+        if (error) {
+            unsubResult = '<p style="color:#c00;">There was an error unsubscribing your email. Please try again later.</p>';
+        } else {
+            unsubResult = '<p>Your email has been removed from Race D1wan updates.</p>';
+        }
+    } catch (err) {
+        unsubResult = '<p style="color:#c00;">There was an error unsubscribing your email. Please try again later.</p>';
+    }
+    res.send(`
+        <html>
+        <head>
+            <title>Unsubscribed - Race D1wan</title>
+            <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+            <style>
+                body { background: #181818; color: #fff; font-family: 'Orbitron', Arial, sans-serif; text-align: center; padding-top: 80px; }
+                .msg { background: #222; display: inline-block; padding: 2rem 2.5rem; border-radius: 10px; }
+                h1 { color: #c4a777; }
+            </style>
+        </head>
+        <body>
+            <div class="msg">
+                <h1>Unsubscribed</h1>
+                ${unsubResult}
+            </div>
+        </body>
+        </html>
+    `);
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);

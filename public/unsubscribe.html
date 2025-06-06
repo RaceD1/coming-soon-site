@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We Get It. But... - Race D1wan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .unsubscribe-container {
+            background: rgba(34, 34, 34, 0.92);
+            color: #fff;
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 2.5rem 2.5rem 2rem 2.5rem;
+            border-radius: 16px;
+            text-align: center;
+            font-family: 'Orbitron', Arial, sans-serif;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+        }
+        .unsubscribe-container h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #fff !important;
+        }
+        .unsubscribe-container h2 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+        }
+        .unsubscribe-container p {
+            margin-bottom: 2rem;
+        }
+        .unsubscribe-actions {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .unsubscribe-container button,
+        .unsubscribe-container a {
+            background: linear-gradient(145deg, #c4a777, #8b7355);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 0.7rem 0;
+            width: 150px;
+            font-size: 1rem;
+            font-family: 'Orbitron', Arial, sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            margin: 0;
+            box-sizing: border-box;
+            display: inline-block;
+            text-align: center;
+        }
+        .unsubscribe-container button:hover,
+        .unsubscribe-container a:hover {
+            background: linear-gradient(145deg, #d4b787, #9b8365);
+        }
+        @media (max-width: 600px) {
+            .unsubscribe-actions {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="unsubscribe-container">
+        <h1>We Get It. But...</h1>
+        <h2 style="font-size:1.3rem; color:#fff; margin-bottom:1.2rem; font-weight:600;">You Are Free to Go.</h2>
+        <div style="font-size:1.05rem; color:#fff; margin-bottom:2rem; text-align:left; max-width:500px; margin-left:auto; margin-right:auto; line-height:1.7; font-family: 'Inter', Arial, sans-serif;">
+            <p style="margin-bottom:1.2rem;">No hard feelings.</p>
+            <p style="margin-bottom:1.2rem;">But just so you know... the track session is about to start.</p>
+            <p style="margin-bottom:1.2rem;">What we're building isn't just another email list.<br>It's the first real movement for racers, builders and believers in this region.</p>
+            <p style="margin-bottom:1.2rem;">By unsubscribing, you might miss:</p>
+            <ul style="margin-bottom:1.2rem; padding-left:1.2em;">
+                <li style="margin-bottom:0.7em;">Early access to a platform built by people who've been where you are</li>
+                <li style="margin-bottom:0.7em;">Stories that haven't been told before — from inside the paddock</li>
+                <li style="margin-bottom:0.7em;">A chance to say: "I was here before it all launched."</li>
+            </ul>
+            <p style="margin-bottom:1.2rem;">If you're still sure... click below to confirm.</p>
+            <form method="POST" action="/unsubscribe-confirm" style="margin-bottom: 1.5rem; text-align:center;">
+                <input type="hidden" name="email" id="email-field">
+                <button type="submit" class="unsubscribe-btn">Unsubscribe</button>
+            </form>
+            <p style="margin-bottom:1.2rem;">Or if you just realised you want to keep being part of this:</p>
+            <div style="text-align:center;">
+                <a href="/thanks.html" class="unsubscribe-btn">Bring me back</a>
+            </div>
+        </div>
+    </div>
+    <script>
+      // Get email from query string and set it in the hidden field
+      const params = new URLSearchParams(window.location.search);
+      const email = params.get('email');
+      if(email) document.getElementById('email-field').value = email;
+    </script>
+</body>
+</html> 
