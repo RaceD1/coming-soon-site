@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 require('dotenv').config();
 const { createClient } = require('@supabase/supabase-js');
+const { sendUserConfirmationEmail, sendAdminNotificationEmail } = require('./helpers/mailer');
 
 // Initialize Supabase client
 const supabase = createClient(
@@ -50,9 +51,15 @@ app.post('/submit', async (req, res) => {
 
         if (error) throw error;
 
+        // Send confirmation email to user
+        await sendUserConfirmationEmail({ to: email, name });
+
+        // Send notification email to admin
+        await sendAdminNotificationEmail({ name, email });
+
         res.redirect('/thanks.html');
     } catch (error) {
-        console.error('Error saving submission:', error);
+        console.error('Error saving submission or sending email:', error);
         res.status(500).send('Error saving your data.');
     }
 });
