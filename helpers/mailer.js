@@ -17,8 +17,8 @@ async function sendUserConfirmationEmail({ to, name }) {
     return transporter.sendMail({
         from: `"Race D1wan" <${process.env.EMAIL_USER}>`,
         to,
-        subject: 'Welcome to Race D1wan! You're In The Garage Now.',
-        text: `Welcome to the team, ${name}!\n\nWe're building a motorsport ecosystem for the ones who never had a path.\n\nFor the mechanics building in silence.\nThe racers without sponsors.\nThe ones who knew there had to be more — but couldn't find it.\n\nThis is the beginning of something big. A space to train, to connect, to belong.\n\nAnd because you're early, you'll get first access to the platform before it opens to the public — with early-member advantages we're designing just for you.\n\nThank you for trusting us.\nThank you for believing in this movement — before the world sees it.\n\nYou're in the garage now.\n\nFollow the Build: www.raced1.com\nInstagram: @raced1official\nContact: team@raced1.com`,
+        subject: 'Welcome to Race D1wan! You are In The Garage Now.',
+        text: `Welcome to the team, ${name}!\n\nWe are building a motorsport ecosystem for the ones who never had a path.\n\nFor the mechanics building in silence.\nThe racers without sponsors.\nThe ones who knew there had to be more — but couldn't find it.\n\nThis is the beginning of something big. A space to train, to connect, to belong.\n\nAnd because you're early, you'll get first access to the platform before it opens to the public — with early-member advantages we're designing just for you.\n\nThank you for trusting us.\nThank you for believing in this movement — before the world sees it.\n\nYou're in the garage now.\n\nFollow the Build: www.raced1.com\nInstagram: @raced1official\nContact: team@raced1.com`,
         html: `
             <div style="font-family: 'Orbitron', Arial, sans-serif; background: #181818; color: #fff; padding: 32px 0; text-align: center;">
                 <div style="max-width: 600px; margin: 0 auto; background: #222; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); padding: 32px 24px;">
