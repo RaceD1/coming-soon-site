@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+}
+
+.container {
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.text-content {
+    text-align: center;
+    max-width: 800px;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.subline {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    color: #f0f0f0;
+    line-height: 1.8;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.5px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.subline br {
+    margin-bottom: 0.5rem;
+    display: block;
+    content: "";
+}
+
+.subline:last-of-type {
+    margin-bottom: 2rem;
+}
+
+.coming-soon {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #f0f0f0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+}
+
+.form-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input {
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #007bff;
+}
+
+button {
+    padding: 1.2rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #c4a777, #8b7355);
+    color: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+    width: 100%;
+    font-family: 'Orbitron', sans-serif;
+}
+
+button:hover {
+    background: linear-gradient(145deg, #d4b787, #9b8365);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+}
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #007bff;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 1.2rem 1.5rem;
+    margin-top: 2rem;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #c4a777, #8b7355);
+    color: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.back-button:hover {
+    background: linear-gradient(145deg, #d4b787, #9b8365);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.back-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+    
+    .subline {
+        font-size: 1.2rem;
+    }
+    
+    .coming-soon {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .subline {
+        font-size: 1.1rem;
+    }
+    
+    .coming-soon {
+        font-size: 1.3rem;
+    }
+    
+    .social-icons {
+        gap: 1rem;
+    }
+}
+
+.thanks-content {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 3rem;
+    border-radius: 10px;
+    max-width: 900px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.thanks-content h1 {
+    margin-bottom: 2rem;
+}
+
+.thanks-content .subline {
+    margin-bottom: 1.5rem;
+}
+
+.thanks-content .subline:last-of-type {
+    margin-bottom: 2.5rem;
+}
+
+.thanks-content .coming-soon {
+    margin-bottom: 2.5rem;
+} 
